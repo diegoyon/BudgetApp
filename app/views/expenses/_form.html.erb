@@ -29,7 +29,7 @@
   <div>
     <h2>Select a Category</h2>
     <%= form.label :categories, style: "display: block" %>
-    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    <%= form.collection_check_boxes :category_ids, Category.where(user_id: current_user.id), :id, :name %>
   </div>
 
   <div>
