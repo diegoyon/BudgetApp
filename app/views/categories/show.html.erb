@@ -2,6 +2,10 @@
 
 <%= render @category %>
 
+<% @category.expenses.each do |expense| %>
+  <%= render expense %>
+<% end %>
+
 <div>
   <%= link_to "Edit this category", edit_category_path(@category) %> |
   <%= link_to "Back to categories", categories_path %>

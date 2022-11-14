@@ -5,10 +5,9 @@
 <div id="categories">
   <% @categories.each do |category| %>
     <% if can? :manage, category %>
-      <%= render category %>
-      <p>
-        <%= link_to "Show this category", category %>
-      </p>
+      <%= link_to category do %>
+        <%= render category %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
