@@ -27,6 +27,12 @@
   </div>
 
   <div>
+    <h2>Select a Category</h2>
+    <%= form.label :categories, style: "display: block" %>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
