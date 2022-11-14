@@ -4,10 +4,12 @@
 
 <div id="categories">
   <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
+    <% if can? :manage, category %>
+      <%= render category %>
+      <p>
+        <%= link_to "Show this category", category %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 

@@ -4,10 +4,12 @@
 
 <div id="expenses">
   <% @expenses.each do |expense| %>
-    <%= render expense %>
-    <p>
-      <%= link_to "Show this expense", expense %>
-    </p>
+  <% if can? :manage, expense %>
+      <%= render expense %>
+      <p>
+        <%= link_to "Show this expense", expense %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
