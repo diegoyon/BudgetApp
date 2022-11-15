@@ -1,5 +1,5 @@
 module CategoriesHelper
-  def totalAmount(array)
+  def total_amount(array)
     total = 0
     array.each do |element|
       total += element.amount
