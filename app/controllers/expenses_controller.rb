@@ -1,20 +1,19 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[ show edit update destroy ]
+  before_action :set_category, only: %i[ index show new create ]
   load_and_authorize_resource
+  
   # GET /expenses or /expenses.json
   def index
-    @category = Category.find(params[:category_id])
     @expenses = @category.expenses
   end
 
   # GET /expenses/1 or /expenses/1.json
   def show
-    @category = Category.find(params[:category_id])
   end
 
   # GET /expenses/new
   def new
-    @category = Category.find(params[:category_id])
     @expense = Expense.new
     @expense.category_ids << @category.id
   end
@@ -26,7 +25,6 @@ class ExpensesController < ApplicationController
   # POST /expenses or /expenses.json
   def create
     @expense = Expense.new(expense_params)
-    @category = Category.find(params[:category_id])
     respond_to do |format|
       if @expense.save
         format.html { redirect_to category_url(@category), notice: "Expense was successfully created." }
@@ -65,6 +63,10 @@ class ExpensesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
       @expense = Expense.find(params[:id])
+    end
+
+    def set_category
+      @category = Category.find(params[:category_id])
     end
 
     # Only allow a list of trusted parameters through.
