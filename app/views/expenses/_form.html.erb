@@ -12,13 +12,11 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, autocomplete: "name", placeholder: "Name", class: "expense-name" %>
   </div>
 
   <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
+    <%= form.text_field :amount, autocomplete: "amount", placeholder: "Amount", class: "expense-amount" %>
   </div>
 
   <div>
@@ -27,7 +25,7 @@
     <%= form.collection_check_boxes :category_ids, Category.where(user_id: current_user.id), :id, :name %>
   </div>
 
-  <div>
+  <div class="submit">
     <%= form.submit %>
   </div>
 <% end %>

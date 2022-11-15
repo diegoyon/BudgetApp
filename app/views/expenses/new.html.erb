@@ -1,9 +1,7 @@
-<h1>New expense</h1>
+<div class="category-form">
+
+<%= render "layouts/header_back_expenses", title: 'NEW EXPENSE' %>
 
 <%= render "form", expense: @expense %>
 
-<br>
-
-<div>
-  <%= link_to "Back to expenses", category_expenses_path(@category) %>
 </div>

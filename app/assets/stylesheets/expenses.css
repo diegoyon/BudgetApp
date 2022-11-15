@@ -41,3 +41,12 @@
   font-size: 0.75rem;
   color: rgb(175, 175, 175);
 }
+
+.expense-name,
+.expense-amount {
+  margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+}
