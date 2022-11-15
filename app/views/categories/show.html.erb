@@ -2,7 +2,7 @@
 
 <%= render @category %>
 
-<% @category.expenses.each do |expense| %>
+<% @category.expenses.order('created_at DESC').each do |expense| %>
   <%= render expense %>
 <% end %>
 
