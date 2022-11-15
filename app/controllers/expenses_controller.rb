@@ -3,8 +3,8 @@ class ExpensesController < ApplicationController
   load_and_authorize_resource
   # GET /expenses or /expenses.json
   def index
-    @expenses = Expense.all
     @category = Category.find(params[:category_id])
+    @expenses = @category.expenses
   end
 
   # GET /expenses/1 or /expenses/1.json
@@ -28,7 +28,7 @@ class ExpensesController < ApplicationController
     @category = Category.find(params[:category_id])
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to category_expense_url(@category, @expense), notice: "Expense was successfully created." }
+        format.html { redirect_to category_url(@category), notice: "Expense was successfully created." }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new, status: :unprocessable_entity }
