@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  background-color: var(--main);
+  height: 3.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.back-img {
+  height: 1.2rem;
+}
+
+.header p {
+  color: white;
+}
