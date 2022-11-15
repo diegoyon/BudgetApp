@@ -16,4 +16,7 @@
     <%= category.expenses.sum(:amount) %>
   </p>
 
+  <%= link_to "Edit this category", edit_category_path(category) %>
+  <%= button_to "Destroy this category", category, method: :delete %>
+
 </div>

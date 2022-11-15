@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[show edit update destroy]
-  before_action :set_category, only: %i[index show new create]
+  before_action :set_category, only: %i[index show new edit update create destroy]
   load_and_authorize_resource
 
   # GET /expenses or /expenses.json
@@ -38,7 +38,7 @@ class ExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to expense_url(@expense), notice: 'Expense was successfully updated.' }
+        format.html { redirect_to category_url(@category), notice: 'Expense was successfully updated.' }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class ExpensesController < ApplicationController
     @expense.destroy
 
     respond_to do |format|
-      format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to category_url(@category), notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
