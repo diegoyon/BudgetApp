@@ -66,4 +66,5 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:name, :icon).with_defaults(user_id: current_user.id)
   end
+
 end

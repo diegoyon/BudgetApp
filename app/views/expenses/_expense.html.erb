@@ -10,8 +10,10 @@
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= expense.user_id %>
+    <strong>Date:</strong>
+    <%= expense.created_at.strftime("%e %b %y") %>
   </p>
+
+  
 
 </div>

@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+
+* {
+  font-family: 'Proxima Nova', sans-serif;
+}

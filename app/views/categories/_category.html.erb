@@ -13,7 +13,7 @@
 
   <p>
     <strong>Total amount of all transactions:</strong>
-    <%= total_amount(category.expenses) %>
+    <%= category.expenses.sum(:amount) %>
   </p>
 
 </div>
