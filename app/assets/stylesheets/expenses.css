@@ -1,3 +1,43 @@
+.expenses {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  justify-content: space-between;
+  height: 100vh;
+  align-items: center;
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expenses > a {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--second);
+  color: white !important;
+}
+
 .expense-card {
-  border: 1px solid blue;
+  background-color: white;
+  width: 90vw;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+.date {
+  font-size: 0.75rem;
+  color: rgb(175, 175, 175);
 }
