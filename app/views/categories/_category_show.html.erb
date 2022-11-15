@@ -10,7 +10,7 @@
       </p>
 
       <div>
-        <p><strong>Total: $<%= category.expenses.sum(:amount) %></strong></p>
+        <p><strong>Total: <%= number_to_currency(category.expenses.sum(:amount)) %></strong></p>
       </div>
     </div>
   <%end%>
