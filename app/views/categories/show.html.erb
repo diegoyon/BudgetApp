@@ -1,6 +1,7 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @category %>
+<%= render "layouts/header_back_categories", title: 'EXPENSES' %>
+
+<%= render "category_show", category: @category %>
 
 <% @category.expenses.order('created_at DESC').each do |expense| %>
   <%= render expense %>
@@ -8,9 +9,9 @@
 
 <%= link_to "New expense", new_category_expense_path(@category) %>
 
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %>
-  <%= link_to "Back to categories", categories_path %>
+<%# <div> %>
+  <%#= link_to "Edit this category", edit_category_path(@category) %>
+  <%#= link_to "Back to categories", categories_path %>
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
-</div>
+  <%#= button_to "Destroy this category", @category, method: :delete %>
+<%# </div> %>

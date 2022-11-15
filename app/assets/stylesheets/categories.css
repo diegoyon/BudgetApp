@@ -15,7 +15,7 @@
 }
 
 .category-card > a {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(175, 175, 175);
 }
 
 .new-category-btn {
@@ -61,10 +61,52 @@
   border: none;
   cursor: pointer;
   width: 100%;
-  border-left: 1px solid black;
+  border-left: 1px solid rgb(175, 175, 175);
 }
 
 .delete-btn img,
 .edit-btn img {
   height: 2rem;
+}
+
+.category-card-show {
+  background-color: white;
+  width: 100vw;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-details-show {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  align-items: center;
+}
+
+.category-form {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--background);
+  position: relative;
+}
+
+.submit input {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--second);
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.category-name {
+  margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
 }

@@ -1,10 +1,11 @@
-<h1>Editing category</h1>
+<div class="category-form">
+
+<%= render "layouts/header_back_categories", title: 'EDITING CATEGORY' %>
 
 <%= render "form", category: @category %>
 
-<br>
-
-<div>
-  <%= link_to "Show this category", @category %> |
-  <%= link_to "Back to categories", categories_path %>
 </div>
+<%# <div> %>
+  <%#= link_to "Show this category", @category %>
+  <%#= link_to "Back to categories", categories_path %>
+<%# </div> %>

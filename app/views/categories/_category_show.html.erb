@@ -1,0 +1,17 @@
+<div class="category-card-show" id="<%= dom_id category %>">
+  <%= link_to category do %>
+    <div class="category-details-show">
+      <p>
+        <%= category.icon %>
+      </p>
+
+      <p>
+        <%= category.name %>
+      </p>
+
+      <div>
+        <p><strong>Total: $<%= category.expenses.sum(:amount) %></strong></p>
+      </div>
+    </div>
+  <%end%>
+</div>
