@@ -1,5 +1,6 @@
 .login-page,
-.signup-page {
+.signup-page,
+.forgot-page {
   background-color: var(--background);
   height: 100vh;
 }
