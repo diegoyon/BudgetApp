@@ -16,3 +16,9 @@
 .header p {
   color: white;
 }
+
+.nav-logout-btn {
+  border: none;
+  background-color: var(--main);
+  color: white;
+}

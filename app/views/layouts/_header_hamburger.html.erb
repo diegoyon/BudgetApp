@@ -1,5 +1,5 @@
 <div class="header">
   <%= image_tag ("/assets/hamburger.png"), class: "hamburger-img"%>
   <p><%= title %></p>
-  <p></p>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-logout-btn'  %>
 </div>
