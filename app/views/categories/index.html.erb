@@ -1,15 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<div class="categories">
 
-<h1>Categories</h1>
+<%= render "layouts/header2", title: 'CATEGORIES' %>
 
-<div id="categories">
+<div class="categories-list">
   <% @categories.order('created_at DESC').each do |category| %>
     <% if can? :manage, category %>
-      <%= link_to category do %>
+      <%#= link_to category do %>
         <%= render category %>
-      <% end %>
+      <%# end %>
     <% end %>
   <% end %>
 </div>
 
-<%= link_to "New category", new_category_path %>
+<%= link_to "New Category", new_category_path, class: 'new-category-btn' %>
+
+</div>
