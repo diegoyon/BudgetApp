@@ -16,18 +16,35 @@ RSpec.describe '/expenses', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Expense. As you add validations to Expense, be sure to
   # adjust the attributes here as well.
+
+  before :each do
+    @user = User.create(name: 'Diego Yon', email: 'diego@gmail.com', password: 123456)
+    @category = Category.create!(name: 'Food', icon: 'FoodIcon', user: @user)
+    sign_in @user
+  end
+
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    {
+      name: 'Chicken',
+      amount: 20,
+      user: @user,
+      category_ids: [@category.id]
+    }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+      name: nil,
+      amount: nil,
+      user: @user,
+      category_ids: []
+    }
   end
 
   describe 'GET /index' do
     it 'renders a successful response' do
       Expense.create! valid_attributes
-      get expenses_url
+      get category_expenses_url(@category)
       expect(response).to be_successful
     end
   end
@@ -35,14 +52,14 @@ RSpec.describe '/expenses', type: :request do
   describe 'GET /show' do
     it 'renders a successful response' do
       expense = Expense.create! valid_attributes
-      get expense_url(expense)
+      get category_expense_url(@category, expense)
       expect(response).to be_successful
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_expense_url
+      get new_category_expense_url(@category)
       expect(response).to be_successful
     end
   end
@@ -50,7 +67,7 @@ RSpec.describe '/expenses', type: :request do
   describe 'GET /edit' do
     it 'renders a successful response' do
       expense = Expense.create! valid_attributes
-      get edit_expense_url(expense)
+      get edit_category_expense_url(@category, expense)
       expect(response).to be_successful
     end
   end
@@ -59,25 +76,25 @@ RSpec.describe '/expenses', type: :request do
     context 'with valid parameters' do
       it 'creates a new Expense' do
         expect do
-          post expenses_url, params: { expense: valid_attributes }
+          post category_expenses_url(@category), params: { expense: valid_attributes }
         end.to change(Expense, :count).by(1)
       end
 
-      it 'redirects to the created expense' do
-        post expenses_url, params: { expense: valid_attributes }
-        expect(response).to redirect_to(expense_url(Expense.last))
+      it 'redirects to the category show page' do
+        post category_expenses_url(@category), params: { expense: valid_attributes }
+        expect(response).to redirect_to(category_url(@category))
       end
     end
 
     context 'with invalid parameters' do
       it 'does not create a new Expense' do
         expect do
-          post expenses_url, params: { expense: invalid_attributes }
+          post category_expenses_url(@category), params: { expense: invalid_attributes }
         end.to change(Expense, :count).by(0)
       end
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post expenses_url, params: { expense: invalid_attributes }
+        post category_expenses_url(@category), params: { expense: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -86,28 +103,34 @@ RSpec.describe '/expenses', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        {
+          name: 'Apple',
+          amount: 2,
+          user: @user,
+          category_ids: [@category.id]
+        }
       end
 
       it 'updates the requested expense' do
         expense = Expense.create! valid_attributes
-        patch expense_url(expense), params: { expense: new_attributes }
+        patch category_expense_url(@category, expense), params: { expense: new_attributes }
         expense.reload
-        skip('Add assertions for updated state')
+        expect(expense.attributes).to include( { "name" => "Apple" } )
+        expect(expense.attributes).to include( { "amount" => 2 } )
       end
 
-      it 'redirects to the expense' do
+      it 'redirects to the category show page' do
         expense = Expense.create! valid_attributes
-        patch expense_url(expense), params: { expense: new_attributes }
+        patch category_expense_url(@category, expense), params: { expense: new_attributes }
         expense.reload
-        expect(response).to redirect_to(expense_url(expense))
+        expect(response).to redirect_to(category_url(@category))
       end
     end
 
     context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         expense = Expense.create! valid_attributes
-        patch expense_url(expense), params: { expense: invalid_attributes }
+        patch category_expense_url(@category, expense), params: { expense: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -117,14 +140,14 @@ RSpec.describe '/expenses', type: :request do
     it 'destroys the requested expense' do
       expense = Expense.create! valid_attributes
       expect do
-        delete expense_url(expense)
+        delete category_expense_url(@category, expense)
       end.to change(Expense, :count).by(-1)
     end
 
-    it 'redirects to the expenses list' do
+    it 'redirects to the category show page' do
       expense = Expense.create! valid_attributes
-      delete expense_url(expense)
-      expect(response).to redirect_to(expenses_url)
+      delete category_expense_url(@category, expense)
+      expect(response).to redirect_to(category_url(@category))
     end
   end
 end

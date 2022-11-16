@@ -16,12 +16,26 @@ RSpec.describe '/categories', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Category. As you add validations to Category, be sure to
   # adjust the attributes here as well.
+
+  before :each do
+    @user = User.create(name: 'Diego Yon', email: 'diego@gmail.com', password: 123456)
+    sign_in @user
+  end
+
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    {
+      name: 'Groceries',
+      icon: 'GroceriesIcon',
+      user: @user
+    }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+      name: nil,
+      icon: 'GroceriesIcon',
+      user: @user
+    }
   end
 
   describe 'GET /index' do
@@ -63,9 +77,9 @@ RSpec.describe '/categories', type: :request do
         end.to change(Category, :count).by(1)
       end
 
-      it 'redirects to the created category' do
+      it 'redirects to the categories page' do
         post categories_url, params: { category: valid_attributes }
-        expect(response).to redirect_to(category_url(Category.last))
+        expect(response).to redirect_to(categories_url)
       end
     end
 
@@ -86,21 +100,26 @@ RSpec.describe '/categories', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        {
+          name: 'Technology',
+          icon: 'TechnologyIcon',
+          user: @user
+        }
       end
 
       it 'updates the requested category' do
         category = Category.create! valid_attributes
         patch category_url(category), params: { category: new_attributes }
         category.reload
-        skip('Add assertions for updated state')
+        expect(category.attributes).to include( { "name" => "Technology" } )
+        expect(category.attributes).to include( { "icon" => "TechnologyIcon" } )
       end
 
-      it 'redirects to the category' do
+      it 'redirects to the categories page' do
         category = Category.create! valid_attributes
         patch category_url(category), params: { category: new_attributes }
         category.reload
-        expect(response).to redirect_to(category_url(category))
+        expect(response).to redirect_to(categories_url)
       end
     end
 
