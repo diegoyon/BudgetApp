@@ -18,7 +18,7 @@ RSpec.describe '/expenses', type: :request do
   # adjust the attributes here as well.
 
   before :each do
-    @user = User.create(name: 'Diego Yon', email: 'diego@gmail.com', password: 123456)
+    @user = User.create(name: 'Diego Yon', email: 'diego@gmail.com', password: 123_456)
     @category = Category.create!(name: 'Food', icon: 'FoodIcon', user: @user)
     sign_in @user
   end
@@ -115,8 +115,8 @@ RSpec.describe '/expenses', type: :request do
         expense = Expense.create! valid_attributes
         patch category_expense_url(@category, expense), params: { expense: new_attributes }
         expense.reload
-        expect(expense.attributes).to include( { "name" => "Apple" } )
-        expect(expense.attributes).to include( { "amount" => 2 } )
+        expect(expense.attributes).to include({ 'name' => 'Apple' })
+        expect(expense.attributes).to include({ 'amount' => 2 })
       end
 
       it 'redirects to the category show page' do

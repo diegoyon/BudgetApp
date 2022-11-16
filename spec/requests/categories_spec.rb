@@ -18,7 +18,7 @@ RSpec.describe '/categories', type: :request do
   # adjust the attributes here as well.
 
   before :each do
-    @user = User.create(name: 'Diego Yon', email: 'diego@gmail.com', password: 123456)
+    @user = User.create(name: 'Diego Yon', email: 'diego@gmail.com', password: 123_456)
     sign_in @user
   end
 
@@ -111,8 +111,8 @@ RSpec.describe '/categories', type: :request do
         category = Category.create! valid_attributes
         patch category_url(category), params: { category: new_attributes }
         category.reload
-        expect(category.attributes).to include( { "name" => "Technology" } )
-        expect(category.attributes).to include( { "icon" => "TechnologyIcon" } )
+        expect(category.attributes).to include({ 'name' => 'Technology' })
+        expect(category.attributes).to include({ 'icon' => 'TechnologyIcon' })
       end
 
       it 'redirects to the categories page' do
