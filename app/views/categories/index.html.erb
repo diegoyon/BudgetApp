@@ -1,0 +1,17 @@
+<div class="categories">
+
+<%= render "layouts/header_hamburger", title: 'CATEGORIES' %>
+
+<div class="categories-list">
+  <% @categories.order('created_at DESC').each do |category| %>
+    <% if can? :manage, category %>
+      <%#= link_to category do %>
+        <%= render category %>
+      <%# end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "New Category", new_category_path, class: 'new-category-btn' %>
+
+</div>

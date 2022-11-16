@@ -1,0 +1,41 @@
+.splash-screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logo-img {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  max-width: 80vw;
+}
+
+.registration-buttons {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  gap: 0.5rem;
+}
+
+.registration-buttons li {
+  display: flex;
+}
+
+.login-btn,
+.signup-btn {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.login-btn {
+  background-color: var(--main);
+  color: white !important;
+}

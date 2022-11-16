@@ -1,0 +1,32 @@
+.login-page,
+.signup-page,
+.forgot-page {
+  background-color: var(--background);
+  height: 100vh;
+}
+
+.login-page > a {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto;
+  color: gray !important;
+}
+
+.new_user {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.new_user input {
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+}
+
+.actions input {
+  background-color: var(--second);
+  color: white;
+}

@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  flex-shrink: 0;
+  background-color: var(--main);
+  height: 3.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.back-img,
+.hamburger-img {
+  height: 1.2rem;
+}
+
+.header p {
+  color: white;
+}
+
+.nav-logout-btn {
+  border: none;
+  background-color: var(--main);
+  color: white;
+}

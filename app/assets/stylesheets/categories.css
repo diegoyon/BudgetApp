@@ -1,0 +1,119 @@
+.categories {
+  background-color: var(--background);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category-card {
+  background-color: white;
+  width: 90vw;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card > a {
+  border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+.new-category-btn {
+  background-color: var(--second);
+  color: white !important;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.categories > a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.category-details {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
+  align-items: center;
+}
+
+.edit-destroy-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit-destroy-buttons > a,
+.edit-destroy-buttons > form {
+  width: 100%;
+  text-align: center;
+}
+
+.delete-btn {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-left: 1px solid rgb(175, 175, 175);
+}
+
+.delete-btn img,
+.edit-btn img {
+  height: 2rem;
+}
+
+.category-card-show {
+  background-color: white;
+  width: 100vw;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-details-show {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  align-items: center;
+}
+
+.category-form {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--background);
+  position: relative;
+}
+
+.submit input {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--second);
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.category-name {
+  margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+}
+
+#category_icon {
+  margin: 1rem;
+  border: none;
+  background-color: var(--main);
+  padding: 0.5rem;
+}

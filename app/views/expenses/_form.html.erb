@@ -1,0 +1,37 @@
+<%= form_with(model: expense, url: [@category, expense]) do |form| %>
+  <% if expense.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+        <% expense.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :name, autocomplete: "name", placeholder: "Name", class: "expense-name" %>
+  </div>
+
+  <div>
+    <%= form.text_field :amount, autocomplete: "amount", placeholder: "Amount", class: "expense-amount" %>
+  </div>
+
+  <div>
+    <h4>Select a category or categories</h4>
+    <%#= form.label :categories, style: "display: block" %>
+    <div class="checkbox-list">
+    <%= form.collection_check_boxes :category_ids, Category.where(user_id: current_user.id), :id, :name_with_emoji do |b| %>
+      <%= b.label class:"label-checkbox" do%>
+         <%=b.check_box + b.text%>
+        <%end%>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+<% end %>
