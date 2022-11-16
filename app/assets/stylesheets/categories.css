@@ -110,3 +110,10 @@
   width: 100%;
   border: none;
 }
+
+#category_icon {
+  margin: 1rem;
+  border: none;
+  background-color: var(--main);
+  padding: 0.5rem;
+}

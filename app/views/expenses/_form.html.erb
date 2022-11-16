@@ -20,9 +20,15 @@
   </div>
 
   <div>
-    <h2>Select a Category</h2>
-    <%= form.label :categories, style: "display: block" %>
-    <%= form.collection_check_boxes :category_ids, Category.where(user_id: current_user.id), :id, :name %>
+    <h4>Select a category or categories</h4>
+    <%#= form.label :categories, style: "display: block" %>
+    <div class="checkbox-list">
+    <%= form.collection_check_boxes :category_ids, Category.where(user_id: current_user.id), :id, :name_with_emoji do |b| %>
+      <%= b.label class:"label-checkbox" do%>
+         <%=b.check_box + b.text%>
+        <%end%>
+    <% end %>
+    </div>
   </div>
 
   <div class="submit">

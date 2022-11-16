@@ -4,4 +4,8 @@ class Category < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { scope: :user }
   validates :icon, presence: true
+
+  def name_with_emoji
+    "#{name} #{icon}"
+  end
 end

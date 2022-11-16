@@ -50,3 +50,15 @@
   width: 100%;
   border: none;
 }
+
+.checkbox-list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  gap: 0.5rem;
+}
+
+.label-checkbox {
+  display: flex;
+  gap: 0.5rem;
+}
