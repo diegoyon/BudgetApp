@@ -10,7 +10,7 @@
 - Postgres SQL
 - HTML & CSS
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://budget-app-md2l.onrender.com/)
 
