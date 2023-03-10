@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://budget-app-md2l.onrender.com/)
+[Live Demo Link](https://budget-app-x410.onrender.com/)
 
 ## Getting Started
 
